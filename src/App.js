@@ -3,7 +3,6 @@ import Login from "./screens/Login";
 import "./styless/index.scss";
 import Registro from "./screens/Registro";
 import SellerScreen from "./screens/Seller";
-
 import Footer from "./components/Footer";
 import * as Routes from "./constants/routes";
 import {
@@ -27,7 +26,19 @@ export default function App() {
                 <SideBar {...props}>
                   <Registro {...props} />
                 </SideBar>
-                <Footer ></Footer>
+                <Footer {...props} ></Footer>
+              </Fragment>
+            )}
+          ></Route>
+          <Route
+            path={Routes.SELLER_REPARTOS_SCREEN}
+            render={(props) => (
+              <Fragment>
+                <SideBar {...props} title={"Repartos"}>
+                  <SellerScreen {...props} repartos />
+
+                </SideBar>
+                <Footer {...props} ></Footer>
               </Fragment>
             )}
           ></Route>
@@ -37,8 +48,9 @@ export default function App() {
               <Fragment>
                 <SideBar {...props} title={"Órdenes"}>
                   <SellerScreen {...props} />
+
                 </SideBar>
-                <Footer ></Footer>
+                <Footer {...props} ></Footer>
               </Fragment>
             )}
           ></Route>
@@ -49,7 +61,7 @@ export default function App() {
                 <SideBar {...props}>
                   <Login {...props} />
                 </SideBar>
-                <Footer ></Footer>
+                <Footer {...props} ></Footer>
               </Fragment>
             )}
           ></Route>

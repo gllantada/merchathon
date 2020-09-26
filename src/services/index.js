@@ -16,13 +16,13 @@ const mockOrders = {
         date: new Date(),
         product_id: 54545,
         client_cel: 234234234,
-        status_code: 2,
+        order_status: 0,
         seller_cel: 2453453443,
         client_name: "PEdro",
         client_rut: 22342334 - 9
       },
       {
-        _id: "lkasjhdlskdgjsldkfñ",
+        _id: "lkasjhdlskd234gjsldkfñ",
         seller_id: "kjsdhfkjsdf",
         address_info: {
           address: "Av La rioja 3060 5to B",
@@ -31,7 +31,7 @@ const mockOrders = {
         },
         date: new Date(),
 
-        status_code: 1,
+        order_status: 0,
         product_id: 223234,
         client_cel: 234234234,
         seller_cel: 2453453443,
@@ -39,7 +39,7 @@ const mockOrders = {
         client_rut: 22342334 - 9
       },
       {
-        _id: "lkasjhdlskdgjsldkfñ",
+        _id: "lkasjhdlskdg4jsldkfñ",
         seller_id: "kjsdhfkjsdf",
         address_info: {
           address: "Av La rioja 3060 5to B",
@@ -48,7 +48,7 @@ const mockOrders = {
         },
         date: new Date(),
 
-        status_code: 1,
+        order_status: 2,
         product_id: 223234,
         client_cel: 234234234,
         seller_cel: 2453453443,
@@ -56,7 +56,7 @@ const mockOrders = {
         client_rut: 22342334 - 9
       },
       {
-        _id: "lkasjhdlskdgjsldkfñ",
+        _id: "lkasjhdlskdg23422jsldkfñ",
         seller_id: "kjsdhfkjsdf",
         address_info: {
           address: "Av La rioja 3060 5to B",
@@ -65,7 +65,7 @@ const mockOrders = {
         },
         date: new Date(),
 
-        status_code: 1,
+        order_status: 2,
         product_id: 223234,
         client_cel: 234234234,
         seller_cel: 2453453443,
@@ -73,7 +73,7 @@ const mockOrders = {
         client_rut: 22342334 - 9
       },
       {
-        _id: "lkasjhdlskdgjsldkfñ",
+        _id: "lkasjhdlskdg222jsldkfñ",
         seller_id: "kjsdhfkjsdf",
         address_info: {
           address: "Av La rioja 3060 5to B",
@@ -82,7 +82,7 @@ const mockOrders = {
         },
         date: new Date(),
 
-        status_code: 1,
+        order_status: 1,
         product_id: 223234,
         client_cel: 234234234,
         seller_cel: 2453453443,
@@ -90,7 +90,7 @@ const mockOrders = {
         client_rut: 22342334 - 9
       },
       {
-        _id: "lkasjhdlskdgjsldkfñ",
+        _id: "lkasjhdlskdgj3333sldkfñ",
         seller_id: "kjsdhfkjsdf",
         address_info: {
           address: "Av La rioja 3060 5to B",
@@ -99,7 +99,7 @@ const mockOrders = {
         },
         date: new Date(),
 
-        status_code: 1,
+        order_status: 1,
         product_id: 223234,
         client_cel: 234234234,
         seller_cel: 2453453443,
@@ -107,7 +107,7 @@ const mockOrders = {
         client_rut: 22342334 - 9
       },
       {
-        _id: "lkasjhdlskdgjsldkfñ",
+        _id: "lkasjhdlskd444gjsldkfñ",
         seller_id: "kjsdhfkjsdf",
         address_info: {
           address: "Av La rioja 3060 5to B",
@@ -116,7 +116,7 @@ const mockOrders = {
         },
         date: new Date(),
 
-        status_code: 1,
+        order_status: 1,
         product_id: 223234,
         client_cel: 234234234,
         seller_cel: 2453453443,

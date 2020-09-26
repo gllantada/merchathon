@@ -2,32 +2,59 @@
   padding-top: 20px;
   padding-bottom: -20px;
   background-color: $background;
-
+  font-family:"Rubik";
   height: $heithBody;
+  margin-bottom: 100px;
+
   .order{
+    display: flex;
+  box-shadow: none ;
+
   background-color: $backgroundCard !important;
 
     margin:15px 15px;
     padding-left: 22px;
     height: 116px;
     border-radius: 6px;
-    h3{
-      margin:0;
-      margin-top: 22px;  
-      font-size: 16px;
-    }
-
-    div{
-      font-size: 12px;
+    div.check{
       display: flex;
+      flex:0.3;
+      justify-content: center;
       align-items: center;
-      margin-top: 11px;
-      margin-bottom: -3px;
-    
-      svg{
-        font-size: 14px;
-        margin-right: 12px;
-        color:black;
+      .MuiCheckbox-root{
+        color:#72C65F;
+        // border: solid 1px;
+      }
+    }
+    div{
+      flex:0.7;
+
+      h3{
+        margin:0;
+        margin-top: 22px; 
+        color:#1E211E; 
+        font-weight: normal;
+        font-size: 16px;
+      }
+      span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+  
+      div{
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        margin-top: 11px;
+        margin-bottom: -3px;
+        color:#616361;
+      
+        svg{
+          font-size: 14px;
+          margin-right: 12px;
+          color:#616361;
+        }
       }
     }
     

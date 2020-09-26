@@ -7,7 +7,7 @@ import { Container } from "@material-ui/core"
 export default function SimpleBottomNavigation({ handleChange, value }) {
 
   return (
-    <Container maxWidth
+    <Container maxWidth="xs"
     >    <BottomNavigation
       value={value}
       onChange={handleChange}

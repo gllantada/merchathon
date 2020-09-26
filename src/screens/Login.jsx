@@ -20,7 +20,6 @@ const Login = ({ dispatchSetToken, dispatchSetUserData, history }) => {
 
   const handleLogin = () => {
     if (!isValidEmail(email)) {
-      console.log("es falso")
       setErrorEmail("Debe ingresar un email válido")
     }
     if (password.length < 6) {
@@ -29,7 +28,6 @@ const Login = ({ dispatchSetToken, dispatchSetUserData, history }) => {
     login({ email, password }, successLogin, errorLogin)
   }
   const successLogin = (data) => {
-    console.log(data)
 
     const { user_name, email, rol, jwt } = data
     dispatchSetUserData({ user_name, email, rol })
@@ -39,7 +37,6 @@ const Login = ({ dispatchSetToken, dispatchSetUserData, history }) => {
 
   }
   const errorLogin = (err) => {
-    console.log(err)
   }
 
   return (
