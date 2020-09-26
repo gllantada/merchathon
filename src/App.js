@@ -1,0 +1,63 @@
+import React, { Fragment } from "react";
+import Login from "./screens/Login";
+import "./styless/index.scss";
+import Registro from "./screens/Registro";
+import SellerScreen from "./screens/Seller";
+
+import Footer from "./components/Footer";
+import * as Routes from "./constants/routes";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import SideBar from "./components/Header";
+import { ThemeProvider } from "@material-ui/core/styles";
+import theme from "./styless/theme";
+export default function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Switch>
+          <Route
+            path={Routes.COLABORATOR_SCREEN}
+            render={(props) => (
+              <Fragment>
+                <SideBar {...props}>
+                  <Registro {...props} />
+                </SideBar>
+                <Footer ></Footer>
+              </Fragment>
+            )}
+          ></Route>
+          <Route
+            path={Routes.SELLER_SCREEN}
+            render={(props) => (
+              <Fragment>
+                <SideBar {...props} title={"Órdenes"}>
+                  <SellerScreen {...props} />
+                </SideBar>
+                <Footer ></Footer>
+              </Fragment>
+            )}
+          ></Route>
+          <Route
+            path={Routes.LOGIN}
+            render={(props) => (
+              <Fragment>
+                <SideBar {...props}>
+                  <Login {...props} />
+                </SideBar>
+                <Footer ></Footer>
+              </Fragment>
+            )}
+          ></Route>
+
+
+          <Redirect to={Routes.LOGIN}></Redirect>
+        </Switch>
+      </Router>
+    </ThemeProvider>
+  );
+}
