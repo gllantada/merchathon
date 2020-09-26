@@ -23,13 +23,6 @@ const Order = ({ data, handleCheckChange, selected }) => {
     </Card>
   )
 }
-const mapStateToProps = (state) => {
-  // const { selectedOrders } = state.orders
-  // return { selectedOrders }
-}
 
-const mapDispatchToProps = {
 
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Order)
+export default Order

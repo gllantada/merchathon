@@ -1,27 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from "react-redux";
-import { getOrders } from "../services"
-import Order from "../components/Order"
-import Spinner from "../components/Spinner"
-import Navigator from "../components/Navigator"
-import { SELLER } from "../constants/roles"
-import { successResponsive } from "../constants/modalObjects"
-
-import { COLABORATOR_SCREEN } from "../constants/routes"
-import * as SELLER_STATE from "../constants/seller_state"
+import { getOrders } from "../services";
+import Order from "../components/Order";
+import Spinner from "../components/Spinner";
+import Navigator from "../components/Navigator";
+import { SELLER } from "../constants/roles";
+import { successResponsive } from "../constants/modalObjects";
+import { COLABORATOR_SCREEN } from "../constants/routes";
+import * as SELLER_STATE from "../constants/seller_state";
 import { bindActionCreators } from "redux";
-import { setSelectedOrders, setOrders } from "./../redux/orders/actions"
-import { showError } from "./../redux/common/actions"
-
+import { setSelectedOrders, setOrders } from "./../redux/orders/actions";
+import { showError } from "./../redux/common/actions";
 import ButtonFixed from '../components/ButtonFixed';
+import Modal from './../components/Modal';
+import Delivers from './../components/Delivers';
+
 
 
 const Seller = ({ rol, history, selectedOrders, dispatchSetSelectedOrders, dispatchSetOrders, repartos, dispatchShowModal }) => {
   const [ready, setReady] = useState(false)
   const [action, setAction] = useState(false)
+  const [openModal, setOpenModal] = useState(false);
   const [showOrders, setShowOrders] = useState([])
   const [orders, setOrders] = useState([])
   const [nav, setNav] = useState(SELLER_STATE.PARA_PREPARAR);
+  const [actionText, setActionText] = useState("Enviar a preparación");
+
   useEffect(() => {
 
     if (rol !== SELLER) history.push(COLABORATOR_SCREEN)
@@ -33,13 +37,16 @@ const Seller = ({ rol, history, selectedOrders, dispatchSetSelectedOrders, dispa
   }, [])
   useEffect(() => {
     getOrders("pepe", succesOrders, errorOrders)
+    setActionText(SELLER_STATE.getActionText(nav))
+    setAction(false)
+    dispatchSetSelectedOrders([])
     return () => {
 
     }
   }, [nav])
 
-  const handleNavChange = async (e, next) => {
-    await setNav(next)
+  const handleNavChange = (e, next) => {
+    setNav(next)
 
   }
   const handleOrder = (e) => {
@@ -64,18 +71,25 @@ const Seller = ({ rol, history, selectedOrders, dispatchSetSelectedOrders, dispa
   }
   const handleAction = async () => {
     //la accion del correspondiente segun el entorno
-    setReady(false)
+    if (nav === SELLER_STATE.PARA_DESPACHO) {
+      //retornamos por que dentro del modal se maneja el servicio correspondiente
+      setOpenModal(true);
+      return
+    }
     let aux = selectedOrders;
+
+    setReady(false)
+
     await dispatchSetSelectedOrders([])
     succesUpdate();
     console.log("pepe")
+    console.log(nav)
     setAction(false)
 
   }
   const succesUpdate = () => {
-    // setReady(true)
+    setReady(true)
     dispatchShowModal(successResponsive("Salio bien"))
-    // console.log(window.location.reload())
   }
   const succesOrders = (data) => {
     console.log(orders)
@@ -103,9 +117,12 @@ const Seller = ({ rol, history, selectedOrders, dispatchSetSelectedOrders, dispa
             ></Order>
           })}
           <div style={{ height: "100px" }}></div>
-          {action && < ButtonFixed className="accionar" text={"Enviar a preparación"} onClick={handleAction} > </ButtonFixed>}
+          {action && < ButtonFixed className="accionar" text={actionText} onClick={handleAction} > </ButtonFixed>}
         </div>
       </>}
+      <Modal open={openModal} handleClose={() => setOpenModal(false)}>
+        <Delivers handleClose={() => setOpenModal(false)}></Delivers>
+      </Modal>
       {!ready && <Spinner></Spinner>}
     </>
   )

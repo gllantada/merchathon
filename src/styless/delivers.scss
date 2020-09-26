@@ -1,0 +1,74 @@
+.delivers {
+  background-color: red;
+  padding: 32px 27px;
+  width: 80%;
+
+  .MuiRadio-colorSecondary.Mui-checked {
+    color: #72C65F;
+  }
+
+  .MuiFormControl-root {
+
+    width: 100%;
+  }
+
+  .MuiDivider-root {
+    width: 100%;
+    margin: 12px 0;
+    color: #BBBCBB;
+  }
+
+  .MuiFormGroup-root {
+    display: flex;
+    justify-content: space-between;
+
+    label {
+      width: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+
+      .MuiTypography-body1 {
+        color: #787978;
+      }
+
+      .MuiRadio-root {
+        color: #72C65F
+      }
+
+      span {
+        padding-right: 0;
+      }
+    }
+  }
+
+  button {
+    margin-top: 20px;
+    background-color: #43B02A;
+    width: 100%;
+    height: 48px;
+    color: white;
+    text-transform: none;
+    border-radius: 6px;
+  }
+
+  button:disabled {
+    background-color: #BBBCBB;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      margin: 0;
+      font-size: 16px;
+      font-family: "Rubik";
+      color: #1E211E;
+      font-weight: normal;
+    }
+
+  }
+
+}
