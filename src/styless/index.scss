@@ -1,7 +1,18 @@
+@import "./variables.scss";
+@import "./header.scss";
+@import "./nav.scss";
+@import "./orders.scss";
+@import "./footer.scss";
+@import "./accionar.scss";
+
+
+
+
 body{
-  background-color: grey;
+  background-color:$background;
+  position: relative !important;
+  max-width: 400px;
 }
-.MuiBottomNavigationAction-root.Mui-selected{
-  color:green !important;
-  border-bottom:  solid 2px green;
-}
+
+
+

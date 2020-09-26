@@ -1,0 +1,19 @@
+.header{
+  background-color:$background ;
+  height: $heithHeader;
+  h1{
+    color:black;
+    margin: 0;
+    font-size: $titleSize;
+    // margin-left: 20px;
+
+  }
+  .profile{
+    display: flex;
+    justify-content: flex-end;
+    svg{
+      margin:15px 0;
+      margin-bottom: 13px;
+    }
+  }
+}

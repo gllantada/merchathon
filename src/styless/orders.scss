@@ -1,0 +1,39 @@
+.orders{
+  padding-top: 20px;
+  padding-bottom: -20px;
+  background-color: $background;
+
+  height: $heithBody;
+  .order{
+  background-color: $backgroundCard !important;
+
+    margin:15px 15px;
+    padding-left: 22px;
+    height: 116px;
+    border-radius: 6px;
+    h3{
+      margin:0;
+      margin-top: 22px;  
+      font-size: 16px;
+    }
+
+    div{
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      margin-top: 11px;
+      margin-bottom: -3px;
+    
+      svg{
+        font-size: 14px;
+        margin-right: 12px;
+        color:black;
+      }
+    }
+    
+  }
+ 
+  .MuiPaper-root{
+    background-color: $background;
+  }
+}

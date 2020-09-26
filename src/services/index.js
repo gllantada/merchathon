@@ -8,11 +8,12 @@ const mockOrders = {
   payload: {
     orders: [
       {
-        _id: "kihfdgihjfgojdlfkg",
+        _id: "kiasdasdasdhfdgihjfgojdlfkg",
         seller_id: "kjsdhfkjsdf",
         address_info: {
           address: "Av cabildo 3060 5to B"
         },
+        date: new Date(),
         product_id: 54545,
         client_cel: 234234234,
         status_code: 2,
@@ -28,6 +29,93 @@ const mockOrders = {
           lat: 1223434534545,
           long: -342342342342
         },
+        date: new Date(),
+
+        status_code: 1,
+        product_id: 223234,
+        client_cel: 234234234,
+        seller_cel: 2453453443,
+        client_name: "PEdro",
+        client_rut: 22342334 - 9
+      },
+      {
+        _id: "lkasjhdlskdgjsldkfñ",
+        seller_id: "kjsdhfkjsdf",
+        address_info: {
+          address: "Av La rioja 3060 5to B",
+          lat: 1223434534545,
+          long: -342342342342
+        },
+        date: new Date(),
+
+        status_code: 1,
+        product_id: 223234,
+        client_cel: 234234234,
+        seller_cel: 2453453443,
+        client_name: "PEdro",
+        client_rut: 22342334 - 9
+      },
+      {
+        _id: "lkasjhdlskdgjsldkfñ",
+        seller_id: "kjsdhfkjsdf",
+        address_info: {
+          address: "Av La rioja 3060 5to B",
+          lat: 1223434534545,
+          long: -342342342342
+        },
+        date: new Date(),
+
+        status_code: 1,
+        product_id: 223234,
+        client_cel: 234234234,
+        seller_cel: 2453453443,
+        client_name: "PEdro",
+        client_rut: 22342334 - 9
+      },
+      {
+        _id: "lkasjhdlskdgjsldkfñ",
+        seller_id: "kjsdhfkjsdf",
+        address_info: {
+          address: "Av La rioja 3060 5to B",
+          lat: 1223434534545,
+          long: -342342342342
+        },
+        date: new Date(),
+
+        status_code: 1,
+        product_id: 223234,
+        client_cel: 234234234,
+        seller_cel: 2453453443,
+        client_name: "PEdro",
+        client_rut: 22342334 - 9
+      },
+      {
+        _id: "lkasjhdlskdgjsldkfñ",
+        seller_id: "kjsdhfkjsdf",
+        address_info: {
+          address: "Av La rioja 3060 5to B",
+          lat: 1223434534545,
+          long: -342342342342
+        },
+        date: new Date(),
+
+        status_code: 1,
+        product_id: 223234,
+        client_cel: 234234234,
+        seller_cel: 2453453443,
+        client_name: "PEdro",
+        client_rut: 22342334 - 9
+      },
+      {
+        _id: "lkasjhdlskdgjsldkfñ",
+        seller_id: "kjsdhfkjsdf",
+        address_info: {
+          address: "Av La rioja 3060 5to B",
+          lat: 1223434534545,
+          long: -342342342342
+        },
+        date: new Date(),
+
         status_code: 1,
         product_id: 223234,
         client_cel: 234234234,

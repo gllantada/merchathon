@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from "react-redux";
 import { getOrders } from "../services"
-import { Container } from "@material-ui/core"
+import { Container, Button } from "@material-ui/core"
 import Order from "../components/Order"
 import Spinner from "../components/Spinner"
 import Navigator from "../components/Navigator"
 import { SELLER } from "../constants/roles"
 import { COLABORATOR_SCREEN } from "../constants/routes"
 import * as SELLER_STATE from "../constants/seller_state"
+import ButtonFixed from '../components/ButtonFixed';
 
 
 const Seller = ({ rol, history }) => {
@@ -49,10 +50,13 @@ const Seller = ({ rol, history }) => {
 
 
         </Navigator>
-        hola
-        {orders.map(order => {
-          return <Order key={order._id} data={order} onClick={handleOrder}></Order>
-        })}</>}
+        <div className=" orders">
+          {orders.map(order => {
+            return <Order key={order._id} data={order} onClick={handleOrder}></Order>
+          })}
+          <ButtonFixed className="accionar" text={"Enviar a preparación"} onClick={() => { console.log("boton") }} > </ButtonFixed>
+        </div>
+      </>}
       {!ready && <Spinner></Spinner>}
     </>
   )

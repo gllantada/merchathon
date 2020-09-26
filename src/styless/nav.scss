@@ -1,0 +1,17 @@
+.nav{
+  background-color: $background !important;
+  height: $heithNav;
+  span{
+    font-size: 13px;
+  }
+  .MuiBottomNavigation-root{
+    justify-content: space-around !important;
+    }
+    .MuiBottomNavigationAction-root{
+      padding:0 !important;
+    }
+  .MuiBottomNavigationAction-root.Mui-selected{
+    color:#1E211E !important;
+    border-bottom:  solid 2px $selectedNav;
+  }
+}
