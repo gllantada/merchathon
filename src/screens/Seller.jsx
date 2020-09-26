@@ -44,14 +44,15 @@ const Seller = ({ rol, history }) => {
 
   return (
     <>
-      {ready &&
+      {ready && <>
         <Navigator handleChange={handleNavChange} value={nav}>
-          hola
-          {orders.map(order => {
-          return <Order key={order._id} data={order} onClick={handleOrder}></Order>
-        })}
 
-        </Navigator>}
+
+        </Navigator>
+        hola
+        {orders.map(order => {
+          return <Order key={order._id} data={order} onClick={handleOrder}></Order>
+        })}</>}
       {!ready && <Spinner></Spinner>}
     </>
   )
