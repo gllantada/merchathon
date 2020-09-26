@@ -20,7 +20,10 @@
 
   .MuiFormGroup-root {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    max-height: 45vh;
+    overflow-y: scroll;
 
     label {
       width: 100%;

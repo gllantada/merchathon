@@ -1,6 +1,23 @@
-.spinner{
+.spinner {
   width: 100%;
   display: flex;
   padding-top: 100px;
   justify-content: center;
+}
+
+.message {
+  width: 343px;
+  height: 48px;
+  background: #80B7E6 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  text-align: left;
+  font-family: Helvetica Neue;
+  letter-spacing: 0px;
+  font-size: 16px !important;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 16px;
+  opacity: 1;
 }

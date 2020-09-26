@@ -9,8 +9,21 @@ export const dateToShow = (date) => {
   return response;
 };
 export const getRadioObject = () => {
-  return [{ label: "Juan Pedro medel", value: "1" }, { label: "Juan Pedro menendez ", value: "0" },
-  { label: "Juan Pedro medel", value: "2" }, { label: "Juan Pedro menendez ", value: "3" }
+  return [{
+      label: "Juan Pedro medel",
+      value: "1"
+    }, {
+      label: "Juan Pedro menendez ",
+      value: "3"
+    },
+    {
+      label: "Juan Pedro medel",
+      value: "4"
+    }, {
+      label: "Juan Pedro menendez ",
+      value: "5"
+    }
+
   ]
 }
 const withCero = (date) => {

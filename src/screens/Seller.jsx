@@ -14,6 +14,7 @@ import { showError } from "./../redux/common/actions";
 import ButtonFixed from '../components/ButtonFixed';
 import Modal from './../components/Modal';
 import Delivers from './../components/Delivers';
+import ShowMessage from '../components/ShowMessage';
 
 
 
@@ -25,6 +26,7 @@ const Seller = ({ rol, history, selectedOrders, dispatchSetSelectedOrders, dispa
   const [orders, setOrders] = useState([])
   const [nav, setNav] = useState(SELLER_STATE.PARA_PREPARAR);
   const [actionText, setActionText] = useState("Enviar a preparación");
+  const [messageToShow, setMessageToShow] = useState("")
 
   useEffect(() => {
 
@@ -44,6 +46,12 @@ const Seller = ({ rol, history, selectedOrders, dispatchSetSelectedOrders, dispa
 
     }
   }, [nav])
+  useEffect(() => {
+    setTimeout(() => {
+      setMessageToShow("")
+
+    }, 1000);
+  }, [messageToShow])
 
   const handleNavChange = (e, next) => {
     setNav(next)
@@ -66,13 +74,11 @@ const Seller = ({ rol, history, selectedOrders, dispatchSetSelectedOrders, dispa
     } else {
       aux.push(id)
     }
-    setAction(aux.length > 0)
-    dispatchSetSelectedOrders(aux)
+    setAction(aux.length > 0);
+    dispatchSetSelectedOrders(aux);
   }
   const handleAction = async () => {
-    //la accion del correspondiente segun el entorno
     if (nav === SELLER_STATE.PARA_DESPACHO) {
-      //retornamos por que dentro del modal se maneja el servicio correspondiente
       setOpenModal(true);
       return
     }
@@ -86,9 +92,11 @@ const Seller = ({ rol, history, selectedOrders, dispatchSetSelectedOrders, dispa
     console.log(nav)
     setAction(false)
 
+
   }
   const succesUpdate = () => {
     setReady(true)
+    setMessageToShow(SELLER_STATE.getSuccesMessage(nav));
     dispatchShowModal(successResponsive("Salio bien"))
   }
   const succesOrders = (data) => {
@@ -109,6 +117,8 @@ const Seller = ({ rol, history, selectedOrders, dispatchSetSelectedOrders, dispa
   return (
     <>
       {ready && <>
+        <ShowMessage text={messageToShow}></ShowMessage>
+
         {repartos === undefined && <Navigator handleChange={handleNavChange} value={nav}>
         </Navigator>}
         <div className=" orders">
@@ -120,10 +130,12 @@ const Seller = ({ rol, history, selectedOrders, dispatchSetSelectedOrders, dispa
           {action && < ButtonFixed className="accionar" text={actionText} onClick={handleAction} > </ButtonFixed>}
         </div>
       </>}
+
       <Modal open={openModal} handleClose={() => setOpenModal(false)}>
         <Delivers handleClose={() => setOpenModal(false)}></Delivers>
       </Modal>
       {!ready && <Spinner></Spinner>}
+
     </>
   )
 }
