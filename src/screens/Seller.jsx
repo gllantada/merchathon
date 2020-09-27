@@ -79,6 +79,7 @@ const Seller = ({
     aux._id = value;
     aux.body = selectedOrders;
     updateDelivers(aux, succesUpdate, errorUpdate);
+    setOpenModal(false);
   };
 
   const handleNavChange = (e, next) => {
