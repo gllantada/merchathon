@@ -26,7 +26,7 @@ export default function App() {
                 <SideBar {...props}>
                   <Registro {...props} />
                 </SideBar>
-                <Footer {...props} ></Footer>
+                <Footer {...props}> </Footer>
               </Fragment>
             )}
           ></Route>
@@ -36,9 +36,8 @@ export default function App() {
               <Fragment>
                 <SideBar {...props} title={"Repartos"}>
                   <SellerScreen {...props} repartos />
-
                 </SideBar>
-                <Footer {...props} ></Footer>
+                <Footer {...props}> </Footer>
               </Fragment>
             )}
           ></Route>
@@ -48,9 +47,8 @@ export default function App() {
               <Fragment>
                 <SideBar {...props} title={"Órdenes"}>
                   <SellerScreen {...props} />
-
                 </SideBar>
-                <Footer {...props} ></Footer>
+                <Footer {...props}> </Footer>
               </Fragment>
             )}
           ></Route>
@@ -58,16 +56,11 @@ export default function App() {
             path={Routes.LOGIN}
             render={(props) => (
               <Fragment>
-                <SideBar {...props}>
-                  <Login {...props} />
-                </SideBar>
-                <Footer {...props} ></Footer>
+                <Login {...props} />
               </Fragment>
             )}
           ></Route>
-
-
-          <Redirect to={Routes.LOGIN}></Redirect>
+          <Redirect to={Routes.LOGIN}> </Redirect>
         </Switch>
       </Router>
     </ThemeProvider>

@@ -1,13 +1,15 @@
+import {
+  orders
+} from "./../mocks/orders"
 export const login = (data, callbackSucces, callbackError) => {
   return callbackSucces(mockSellerLogin.payload)
 }
 export const getOrders = (data, callbackSucces, callbackError) => {
-  return callbackSucces(mockOrders.payload)
+  return callbackSucces(orders)
 }
 const mockOrders = {
   payload: {
-    orders: [
-      {
+    orders: [{
         _id: "kiasdasdasdhfdgihjfgojdlfkg",
         seller_id: "kjsdhfkjsdf",
         address_info: {
@@ -30,7 +32,6 @@ const mockOrders = {
           long: -342342342342
         },
         date: new Date(),
-
         order_status: 0,
         product_id: 223234,
         client_cel: 234234234,
@@ -47,7 +48,6 @@ const mockOrders = {
           long: -342342342342
         },
         date: new Date(),
-
         order_status: 2,
         product_id: 223234,
         client_cel: 234234234,
@@ -64,8 +64,7 @@ const mockOrders = {
           long: -342342342342
         },
         date: new Date(),
-
-        order_status: 2,
+        order_status: 4,
         product_id: 223234,
         client_cel: 234234234,
         seller_cel: 2453453443,
@@ -81,8 +80,7 @@ const mockOrders = {
           long: -342342342342
         },
         date: new Date(),
-
-        order_status: 1,
+        order_status: 5,
         product_id: 223234,
         client_cel: 234234234,
         seller_cel: 2453453443,
@@ -98,8 +96,7 @@ const mockOrders = {
           long: -342342342342
         },
         date: new Date(),
-
-        order_status: 1,
+        order_status: 3,
         product_id: 223234,
         client_cel: 234234234,
         seller_cel: 2453453443,
@@ -115,7 +112,6 @@ const mockOrders = {
           long: -342342342342
         },
         date: new Date(),
-
         order_status: 1,
         product_id: 223234,
         client_cel: 234234234,

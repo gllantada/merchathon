@@ -6,12 +6,11 @@
 @import "./accionar.scss";
 @import "./common.scss";
 @import "./delivers.scss";
+@import "./login.scss";
 
-body{
-  background-color:$background;
+
+body {
+  background-color: $background;
   position: relative !important;
   max-width: 400px;
 }
-
-
-
