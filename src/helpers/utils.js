@@ -20,7 +20,6 @@ export const getObjectToUpdate = (nav, idList) => {
 
 }
 export const getQuery = (nav, repartos) => {
-  console.log(nav, repartos)
   if (repartos) return "others=1"
   else return "order_status=" + (nav + 1)
 
@@ -43,7 +42,6 @@ export const getTextForStatus = (status) => {
   else return false
 }
 export const getRadioObject = (data) => {
-  console.log(data);
   let aux = data.filter(elm => {
 
     if (elm.dealer_status === 0)
@@ -60,7 +58,6 @@ export const getRadioObject = (data) => {
 
 }
 export const getObjectToUpdateOrders = (data, type) => {
-  console.log(data)
   let aux = [{
     order_id: "5f6ffc48fe7d1a0006531962",
     order_status: 3

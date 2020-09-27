@@ -36,7 +36,6 @@ export const getOrderDetail = (data, callbacksucces, callbackerror) => {
   }
 };
 export const updateOrders = (data, callbacksucces, callbackerror) => {
-  debugger
   try {
     axios
       .post(`${HOST}/orders/update-orders`, {
@@ -53,7 +52,6 @@ export const updateOrders = (data, callbacksucces, callbackerror) => {
   }
 };
 export const updateDelivers = (data, callbacksucces, callbackerror) => {
-  debugger
   try {
     axios
       .post(`${HOST}/dealers/update-orders/${data._id}`, {

@@ -18,12 +18,10 @@ const OrderDetail = (props) => {
   }, []);
   const handlecords = (poss) => {
     const { latitude, longitude } = poss.coords;
-    console.log({ latitude, longitude });
   };
   const succesDetail = (data) => {
     setDetail(data);
     setReady(true);
-    console.log(data);
   };
   const errorDetail = (err) => {
     console.log(err);

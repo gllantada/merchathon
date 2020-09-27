@@ -71,15 +71,10 @@ const Seller = ({
   }, [messageToShow]);
 
   useEffect(() => {
-    console.log(showOrders);
-  }, [showOrders]);
-
-  useEffect(() => {
     setReadyDelivers(true);
   }, [delivers]);
 
   const handleAsigment = (value) => {
-    console.log(value);
     let aux = {};
     aux._id = value;
     aux.body = selectedOrders;
@@ -90,10 +85,7 @@ const Seller = ({
     setNav(next);
   };
   const succesDelivers = (data) => {
-    console.log(data);
-
     let aux = getRadioObject(data);
-    console.log(aux);
     setDelivers(aux);
   };
 
@@ -104,7 +96,6 @@ const Seller = ({
 
   const handleSelection = (e, id) => {
     let aux = selectedOrders;
-    console.log(e.target.checked);
     if (!e.target.checked) {
       aux = selectedOrders.filter((elm) => {
         if (elm !== id) return elm;
@@ -138,6 +129,7 @@ const Seller = ({
   };
   const succesUpdate = () => {
     setMessageToShow(SELLER_STATE.getSuccesMessage(nav));
+    setAction(false);
     getOrders(getQuery(nav, repartos), succesOrders, errorOrders);
   };
   const succesOrders = (data) => {
@@ -153,7 +145,6 @@ const Seller = ({
         else return null;
       });
     }
-    console.log("aux orders", nav + 1, aux);
     setShowOrders(aux);
     dispatchSetOrders(data);
     setReady(true);

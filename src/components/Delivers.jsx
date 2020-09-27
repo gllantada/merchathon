@@ -7,7 +7,6 @@ import { Button } from "@material-ui/core";
 export default function ({ handleAsigment, handleClose, options, style }) {
   const [value, setValue] = useState(0);
   const handleChange = (e) => {
-    console.log(e.target.value);
     setValue(e.target.value);
   };
   const handleAsignar = () => {

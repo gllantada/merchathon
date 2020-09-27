@@ -12,7 +12,6 @@ const Order = ({ data, handleCheckChange, history }) => {
     history.push(`${ORDER_DETAIL}?t=${data._id}`);
   };
   const repartos = window.location.pathname === SELLER_REPARTOS_SCREEN;
-  console.log(repartos);
 
   return (
     <Card className="order">
