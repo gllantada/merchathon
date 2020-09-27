@@ -30,7 +30,7 @@ const Seller = ({
   const [openModal, setOpenModal] = useState(false);
   const [showOrders, setShowOrders] = useState([]);
   const [orders, setOrders] = useState([]);
-  const [nav, setNav] = useState(SELLER_STATE.PARA_PREPARAR);
+  const [nav, setNav] = useState(SELLER_STATE.PARA_PREPARAR - 1);
   const [actionText, setActionText] = useState("Enviar a preparación");
   const [messageToShow, setMessageToShow] = useState("");
 
