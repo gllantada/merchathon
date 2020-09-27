@@ -1,0 +1,111 @@
+.detailheader {
+  .cancel {
+    margin-top: -20px;
+    padding-bottom: 20px;
+
+    span {
+
+      color: #8E8F8E;
+      font-size: 13px;
+      font-weight: normal;
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 24px;
+    }
+
+    button {
+      width: 166px;
+      height: 32px;
+      background-color: #43B02A;
+      text-transform: none;
+
+      span {
+        color: white
+      }
+
+      border-radius: 6px;
+    }
+  }
+
+  background-color: white;
+
+  .head {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    height: 56px;
+
+    h2 {
+      display: inline !important;
+      color: #1e211e;
+      font-weight: normal;
+      font-size: 16px;
+    }
+
+    svg {
+      position: absolute;
+      left: 24px;
+      font-weight: normal;
+
+      font-size: 24px;
+      color: #1e211e;
+
+    }
+  }
+
+  // .MuiDivider-root {
+  //   width: 100vw;
+  //   position: absolute;
+  //   left: 0;
+  //   border: none;
+  //   height: 4px;
+  //   // background-color: #EFF0EF;
+  // }
+
+  .check {
+    display: flex;
+    align-items: flex-start !important;
+    // padding-top: 12px;
+    padding-bottom: 30px;
+
+    div {
+      border-radius: 9px;
+      font-size: 10px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2px 6px;
+    }
+
+
+
+    .onway {
+      color: #8A670F;
+      background-color: #FFDC7F;
+    }
+
+    .delivered {
+      background-color: #D0ECC9;
+      color: #2C6424
+    }
+
+    .onreturn {
+      background-color: #F9C3BF;
+      font-weight: bold;
+      color: #7D150F;
+    }
+  }
+
+  h1 {
+
+    font-family: Rubik;
+    font-size: 20px;
+    color: #1E211E;
+    font-weight: normal;
+  }
+
+}

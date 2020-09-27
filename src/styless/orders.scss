@@ -1,66 +1,100 @@
-.orders{
+.orders {
   padding-top: 20px;
   padding-bottom: -20px;
   background-color: $background;
-  font-family:"Rubik";
+  font-family: "Rubik";
   height: $heithBody;
   margin-bottom: 100px;
 
-  .order{
+  .check {
     display: flex;
-  box-shadow: none ;
+    align-items: flex-start !important;
+    padding-top: 12px;
 
-  background-color: $backgroundCard !important;
+    div {
+      border-radius: 9px;
+      font-size: 10px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2px 6px;
+    }
 
-    margin:15px 15px;
+    .onway {
+      color: #8A670F;
+      background-color: #FFDC7F;
+    }
+
+    .delivered {
+      background-color: #D0ECC9;
+      color: #2C6424
+    }
+
+    .onreturn {
+      background-color: #F9C3BF;
+      color: #7D150F;
+    }
+  }
+
+  .order {
+    display: flex;
+    box-shadow: none;
+
+    background-color: $backgroundCard !important;
+
+    margin: 15px 15px;
     padding-left: 22px;
     height: 116px;
     border-radius: 6px;
-    div.check{
+
+    div.check {
       display: flex;
-      flex:0.3;
+      flex: 0.3;
       justify-content: center;
       align-items: center;
-      .MuiCheckbox-root{
-        color:#72C65F;
+
+      .MuiCheckbox-root {
+        color: #72C65F;
         // border: solid 1px;
       }
     }
-    div{
-      flex:0.7;
 
-      h3{
-        margin:0;
-        margin-top: 22px; 
-        color:#1E211E; 
+    div {
+      flex: 0.7;
+
+      h3 {
+        margin: 0;
+        margin-top: 22px;
+        color: #1E211E;
         font-weight: normal;
         font-size: 16px;
       }
-      span{
+
+      span {
         display: flex;
         justify-content: center;
         align-items: center;
       }
-  
-      div{
+
+      div {
         font-size: 12px;
         display: flex;
         align-items: center;
         margin-top: 11px;
         margin-bottom: -3px;
-        color:#616361;
-      
-        svg{
+        color: #616361;
+
+        svg {
           font-size: 14px;
           margin-right: 12px;
-          color:#616361;
+          color: #616361;
         }
       }
     }
-    
+
   }
- 
-  .MuiPaper-root{
+
+  .MuiPaper-root {
     background-color: $background;
   }
 }

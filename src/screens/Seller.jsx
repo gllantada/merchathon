@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { getOrders } from "../services";
+import { getRadioObject, getQuery } from "./../helpers/utils";
+
+import {
+  getOrders,
+  getDelivers,
+  updateOrders,
+  updateDelivers,
+} from "../services";
 import Order from "../components/Order";
 import Spinner from "../components/Spinner";
 import Navigator from "../components/Navigator";
 import { SELLER } from "../constants/roles";
-import { successResponsive } from "../constants/modalObjects";
 import { COLABORATOR_SCREEN } from "../constants/routes";
 import * as SELLER_STATE from "../constants/seller_state";
 import { bindActionCreators } from "redux";
 import { setSelectedOrders, setOrders } from "./../redux/orders/actions";
 import { showError } from "./../redux/common/actions";
+import { getObjectToUpdate } from "./../helpers/utils";
 import ButtonFixed from "../components/ButtonFixed";
 import Modal from "./../components/Modal";
 import Delivers from "./../components/Delivers";
@@ -23,38 +30,75 @@ const Seller = ({
   dispatchSetSelectedOrders,
   dispatchSetOrders,
   repartos,
-  dispatchShowModal,
 }) => {
   const [ready, setReady] = useState(false);
+  const [readyDelivers, setReadyDelivers] = useState(false);
   const [action, setAction] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [showOrders, setShowOrders] = useState([]);
-  const [orders, setOrders] = useState([]);
   const [nav, setNav] = useState(SELLER_STATE.PARA_PREPARAR - 1);
   const [actionText, setActionText] = useState("Enviar a preparación");
   const [messageToShow, setMessageToShow] = useState("");
+  const [delivers, setDelivers] = useState([]);
 
   useEffect(() => {
     if (rol !== SELLER) history.push(COLABORATOR_SCREEN);
-
-    getOrders("pepe", succesOrders, errorOrders);
+    getOrders(getQuery(nav, repartos), succesOrders, errorOrders);
     return () => {};
   }, []);
+
   useEffect(() => {
-    getOrders("pepe", succesOrders, errorOrders);
+    if (rol !== SELLER) history.push(COLABORATOR_SCREEN);
+    setReady(false);
+    setShowOrders([]);
+    getOrders(getQuery(nav, repartos), succesOrders, errorOrders);
+    return () => {};
+  }, [repartos]);
+
+  useEffect(() => {
+    setReady(false);
+    getOrders(getQuery(nav, repartos), succesOrders, errorOrders);
     setActionText(SELLER_STATE.getActionText(nav));
     setAction(false);
     dispatchSetSelectedOrders([]);
     return () => {};
   }, [nav]);
+
   useEffect(() => {
     setTimeout(() => {
       setMessageToShow("");
-    }, 1000);
+    }, 4000);
   }, [messageToShow]);
+
+  useEffect(() => {
+    console.log(showOrders);
+  }, [showOrders]);
+
+  useEffect(() => {
+    setReadyDelivers(true);
+  }, [delivers]);
+
+  const handleAsigment = (value) => {
+    console.log(value);
+    let aux = {};
+    aux._id = value;
+    aux.body = selectedOrders;
+    updateDelivers(aux, succesUpdate, errorUpdate);
+  };
 
   const handleNavChange = (e, next) => {
     setNav(next);
+  };
+  const succesDelivers = (data) => {
+    console.log(data);
+
+    let aux = getRadioObject(data);
+    console.log(aux);
+    setDelivers(aux);
+  };
+
+  const errorDelivers = (err) => {
+    console.log(err);
   };
   const handleOrder = (e) => {};
 
@@ -74,40 +118,44 @@ const Seller = ({
   };
   const handleAction = async () => {
     if (nav + 1 === SELLER_STATE.PARA_DESPACHO) {
+      setReadyDelivers(false);
+      getDelivers(succesDelivers, errorDelivers);
       setOpenModal(true);
       return;
     }
-    let aux = selectedOrders;
-
+    updateOrders(
+      getObjectToUpdate(nav, selectedOrders),
+      succesUpdate,
+      errorUpdate
+    );
     setReady(false);
 
-    await dispatchSetSelectedOrders([]);
-    succesUpdate();
-    console.log("pepe");
-    console.log(nav);
+    dispatchSetSelectedOrders([]);
     setAction(false);
   };
+  const errorUpdate = () => {
+    console.log("error");
+  };
   const succesUpdate = () => {
-    setReady(true);
     setMessageToShow(SELLER_STATE.getSuccesMessage(nav));
-    dispatchShowModal(successResponsive("Salio bien"));
+    getOrders(getQuery(nav, repartos), succesOrders, errorOrders);
   };
   const succesOrders = (data) => {
-    console.log(data);
     let aux;
     if (repartos) {
       aux = data.filter((order) => {
-        if (order.order_status > 3) return order;
+        if (parseInt(order.order_status) > 3) return order;
+        else return null;
       });
     } else {
       aux = data.filter((order) => {
-        if (order.order_status === nav + 1) return order;
+        if (parseInt(order.order_status) === nav + 1) return order;
+        else return null;
       });
     }
-    console.log("aux orders", nav + 1);
+    console.log("aux orders", nav + 1, aux);
     setShowOrders(aux);
     dispatchSetOrders(data);
-    setOrders(data);
     setReady(true);
   };
   const errorOrders = (err) => {};
@@ -127,6 +175,7 @@ const Seller = ({
                 <Order
                   key={order._id}
                   data={order}
+                  history={history}
                   onClick={handleOrder}
                   handleCheckChange={handleSelection}
                 ></Order>
@@ -138,17 +187,21 @@ const Seller = ({
                 className="accionar"
                 text={actionText}
                 onClick={handleAction}
-              >
-                {" "}
-              </ButtonFixed>
+              ></ButtonFixed>
             )}
           </div>
         </>
       )}
 
-      <Modal open={openModal} handleClose={() => setOpenModal(false)}>
-        <Delivers handleClose={() => setOpenModal(false)}></Delivers>
-      </Modal>
+      {readyDelivers && (
+        <Modal open={openModal} handleClose={() => setOpenModal(false)}>
+          <Delivers
+            handleAsigment={handleAsigment}
+            handleClose={() => setOpenModal(false)}
+            options={delivers}
+          ></Delivers>
+        </Modal>
+      )}
       {!ready && <Spinner></Spinner>}
     </>
   );
@@ -156,7 +209,7 @@ const Seller = ({
 const mapStateToProps = (state) => {
   const { rol, email, user_name } = state.user.user;
   const { token } = state.user;
-  const { selectedOrders, orders } = state.orders;
+  const { selectedOrders } = state.orders;
 
   return { rol, email, token, user_name, selectedOrders };
 };

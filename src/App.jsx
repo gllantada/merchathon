@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 import Login from "./screens/Login";
 import "./styless/index.scss";
 import Registro from "./screens/Registro";
+import OrderDetail from "./screens/OrderDetail";
+
 import SellerScreen from "./screens/Seller";
 import Footer from "./components/Footer";
 import * as Routes from "./constants/routes";
@@ -39,6 +41,15 @@ export default function App() {
                 </SideBar>
                 <Footer {...props}> </Footer>
               </Fragment>
+            )}
+          ></Route>
+          <Route
+            path={Routes.ORDER_DETAIL}
+            render={(props) => (
+              <>
+                <OrderDetail {...props} repartos />
+                <Footer {...props}> </Footer>
+              </>
             )}
           ></Route>
           <Route

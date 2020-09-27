@@ -37,7 +37,11 @@ const Login = ({ dispatchSetToken, dispatchSetUserData, history }) => {
 
   return (
     <Container style={{ padding: "0" }} className="login" maxWidth="xs">
-      <img src="login.png" width="100%"></img>
+      <img
+        src="login.png"
+        width="100%"
+        alt="Imagen de fondo con marca Falabella"
+      ></img>
       <div>
         <TextField
           className="email"
@@ -70,7 +74,7 @@ const Login = ({ dispatchSetToken, dispatchSetUserData, history }) => {
         </Button>
       </div>
       <div>
-        <a href="#">Recuperar contraseña</a>
+        <a href="http://www.darmas.com.ar">Recuperar contraseña</a>
       </div>
     </Container>
   );

@@ -1,128 +1,94 @@
 import {
-  orders
-} from "./../mocks/orders"
+  HOST
+} from "./../constants/routes"
+import axios from "axios"
+// import {
+//   order
+// } from "./../mocks/order"
+export const getOrders = (query, callbacksucces, callbackerror) => {
+  try {
+    axios
+      .get(`${HOST}/orders?${query}`)
+      .then(function (response) {
+        callbacksucces(response.data);
+      })
+      .catch(function (error) {
+        callbackerror(error);
+      });
+  } catch (error) {
+    callbackerror(error);
+  }
+};
+export const getOrderDetail = (data, callbacksucces, callbackerror) => {
+
+  // return callbacksucces(order);
+  try {
+    axios
+      .get(`${HOST}/orders/${data}`)
+      .then(function (response) {
+        callbacksucces(response.data);
+      })
+      .catch(function (error) {
+        callbackerror(error);
+      });
+  } catch (error) {
+    callbackerror(error);
+  }
+};
+export const updateOrders = (data, callbacksucces, callbackerror) => {
+  debugger
+  try {
+    axios
+      .post(`${HOST}/orders/update-orders`, {
+        payload: data
+      })
+      .then(function (response) {
+        callbacksucces(response.data);
+      })
+      .catch(function (error) {
+        callbackerror(error);
+      });
+  } catch (error) {
+    callbackerror(error);
+  }
+};
+export const updateDelivers = (data, callbacksucces, callbackerror) => {
+  debugger
+  try {
+    axios
+      .post(`${HOST}/dealers/update-orders/${data._id}`, {
+        payload: data.body
+      })
+      .then(function (response) {
+        callbacksucces(response.data);
+      })
+      .catch(function (error) {
+        callbackerror(error);
+      });
+  } catch (error) {
+    callbackerror(error);
+  }
+};
+export const getDelivers = (callbacksucces, callbackerror) => {
+  try {
+    axios
+      .get(`${HOST}/dealers`)
+      .then(function (response) {
+        callbacksucces(response.data);
+      })
+      .catch(function (error) {
+        callbackerror(error);
+      });
+  } catch (error) {
+    callbackerror(error);
+  }
+};
+
+
 export const login = (data, callbackSucces, callbackError) => {
   return callbackSucces(mockSellerLogin.payload)
 }
-export const getOrders = (data, callbackSucces, callbackError) => {
-  return callbackSucces(orders)
-}
-const mockOrders = {
-  payload: {
-    orders: [{
-        _id: "kiasdasdasdhfdgihjfgojdlfkg",
-        seller_id: "kjsdhfkjsdf",
-        address_info: {
-          address: "Av cabildo 3060 5to B"
-        },
-        date: new Date(),
-        product_id: 54545,
-        client_cel: 234234234,
-        order_status: 0,
-        seller_cel: 2453453443,
-        client_name: "PEdro",
-        client_rut: 22342334 - 9
-      },
-      {
-        _id: "lkasjhdlskd234gjsldkfñ",
-        seller_id: "kjsdhfkjsdf",
-        address_info: {
-          address: "Av La rioja 3060 5to B",
-          lat: 1223434534545,
-          long: -342342342342
-        },
-        date: new Date(),
-        order_status: 0,
-        product_id: 223234,
-        client_cel: 234234234,
-        seller_cel: 2453453443,
-        client_name: "PEdro",
-        client_rut: 22342334 - 9
-      },
-      {
-        _id: "lkasjhdlskdg4jsldkfñ",
-        seller_id: "kjsdhfkjsdf",
-        address_info: {
-          address: "Av La rioja 3060 5to B",
-          lat: 1223434534545,
-          long: -342342342342
-        },
-        date: new Date(),
-        order_status: 2,
-        product_id: 223234,
-        client_cel: 234234234,
-        seller_cel: 2453453443,
-        client_name: "PEdro",
-        client_rut: 22342334 - 9
-      },
-      {
-        _id: "lkasjhdlskdg23422jsldkfñ",
-        seller_id: "kjsdhfkjsdf",
-        address_info: {
-          address: "Av La rioja 3060 5to B",
-          lat: 1223434534545,
-          long: -342342342342
-        },
-        date: new Date(),
-        order_status: 4,
-        product_id: 223234,
-        client_cel: 234234234,
-        seller_cel: 2453453443,
-        client_name: "PEdro",
-        client_rut: 22342334 - 9
-      },
-      {
-        _id: "lkasjhdlskdg222jsldkfñ",
-        seller_id: "kjsdhfkjsdf",
-        address_info: {
-          address: "Av La rioja 3060 5to B",
-          lat: 1223434534545,
-          long: -342342342342
-        },
-        date: new Date(),
-        order_status: 5,
-        product_id: 223234,
-        client_cel: 234234234,
-        seller_cel: 2453453443,
-        client_name: "PEdro",
-        client_rut: 22342334 - 9
-      },
-      {
-        _id: "lkasjhdlskdgj3333sldkfñ",
-        seller_id: "kjsdhfkjsdf",
-        address_info: {
-          address: "Av La rioja 3060 5to B",
-          lat: 1223434534545,
-          long: -342342342342
-        },
-        date: new Date(),
-        order_status: 3,
-        product_id: 223234,
-        client_cel: 234234234,
-        seller_cel: 2453453443,
-        client_name: "PEdro",
-        client_rut: 22342334 - 9
-      },
-      {
-        _id: "lkasjhdlskd444gjsldkfñ",
-        seller_id: "kjsdhfkjsdf",
-        address_info: {
-          address: "Av La rioja 3060 5to B",
-          lat: 1223434534545,
-          long: -342342342342
-        },
-        date: new Date(),
-        order_status: 1,
-        product_id: 223234,
-        client_cel: 234234234,
-        seller_cel: 2453453443,
-        client_name: "PEdro",
-        client_rut: 22342334 - 9
-      }
 
-    ]
-  }
-}
 
 const mockSellerLogin = {
   payload: {

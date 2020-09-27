@@ -7,6 +7,4 @@ export const IN_DELIVERY_COMING = 51;
 export const IN_DELIVERY_CLOSE = 52;
 export const DELIVERED = 6;
 export const NOT_DELIVERED = 7;
-export const RETURNING = 8;
-export const RETURNED_TO_ORIGIN = 9;
 export const MISSING = 10;
